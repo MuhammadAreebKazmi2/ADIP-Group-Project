@@ -92,6 +92,12 @@ def apply_fuzzy_c_means_to_image(image_path, n_clusters, fuzziness):
 
     plt.show()
 
+    if save_path:
+        segmented_img *= 255 # Rescale to the range [0, 255]
+        segmented_img = segmented_img.astype(np.uint8)
+        cv2.imwrite(save_path, segmented_img)
+        print(f"Segmented image saved to {save_path}")
+
 # Example usage:
 if __name__ == "__main__":
     np.random.seed(42)
@@ -105,4 +111,9 @@ if __name__ == "__main__":
     # Fuzziness parameter (greater values make the clusters fuzzier)
     fuzziness = 2.0
 
+    # Save path for segmented image
+    save_path = 'segmented_image.jpg'
+    
     apply_fuzzy_c_means_to_image(image_path, n_clusters, fuzziness)
+
+    
