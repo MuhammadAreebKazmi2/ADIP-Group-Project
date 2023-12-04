@@ -103,7 +103,7 @@ if __name__ == "__main__":
     np.random.seed(42)
 
     # Image path
-    image_path = 'PIA11420~orig.jpg'
+    image_path = 'shah-faisal-2022.jpg'
 
     # Number of clusters
     n_clusters = 3
@@ -112,7 +112,7 @@ if __name__ == "__main__":
     fuzziness = 2.0
 
     # Save path for segmented image
-    save_path = 'segmented_image.jpg'
+    save_path = 'shah-faisal-2022.jpg'
     
     apply_fuzzy_c_means_to_image(image_path, n_clusters, fuzziness)
 
