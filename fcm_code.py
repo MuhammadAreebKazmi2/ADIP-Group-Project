@@ -112,7 +112,7 @@ if __name__ == "__main__":
     fuzziness = 2.0
 
     # Save path for segmented image
-    save_path = 'shah-faisal-2022.jpg'
+    save_path = 'shah-faisal-2022-sample.jpg'
     
     apply_fuzzy_c_means_to_image(image_path, n_clusters, fuzziness)
 
