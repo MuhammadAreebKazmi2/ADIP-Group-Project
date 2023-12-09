@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
+import time
 
 def initialize_membership_matrix(n_samples, n_clusters):
     membership_matrix = np.random.rand(n_samples, n_clusters)
@@ -114,6 +115,15 @@ if __name__ == "__main__":
     # Save path for segmented image
     save_path = 'seg-pkj-2021.jpg'
     
+    # timing CPU time
+    start_cpu_time = time.process_time
+
     apply_fuzzy_c_means_to_image(image_path, n_clusters, fuzziness)
 
-    
+    # timing CPU time end
+    end_cpu_time = time.process_time
+
+    # print CPU time
+    elapsed_cpu_time = end_cpu_time - start_cpu_time
+
+    print(f"CPU time: {elapsed_cpu_time} seconds")

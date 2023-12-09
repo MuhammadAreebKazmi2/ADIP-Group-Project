@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
+import time
 
 # Loading the input image
 image = cv2.imread('punhal-khan-jamali-2019.jpg')
@@ -39,6 +40,10 @@ plt.title('Saturation')
 
 plt.show()
 
+# timing CPU time
+start_cpu_time = time.process_time
+start_time = time.time()
+
 # Convert the image into HSV color space
 hsv_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
@@ -57,6 +62,18 @@ segmented_s = (s_binary)  # Inverting the binary image
 v_level, v_binary = cv2.threshold(v_channel, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
 segmented_v = (v_binary)  # Inverting the binary image
 
+# timing CPU time end
+end_cpu_time = time.process_time
+end_time = time.time()
+
+# print CPU time
+elapsed_cpu_time = end_cpu_time - start_cpu_time
+elapsed_time = end_time - start_time
+
+
+print(f"HSV CPU time: {elapsed_cpu_time} seconds")
+print(f"HSV Time elapsed: {elapsed_time} seconds")
+
 # Displaying the results for HSV
 plt.figure(figsize=(10, 5))
 
@@ -73,6 +90,10 @@ plt.imshow(segmented_v, cmap='gray')
 plt.title('Value')
 
 plt.show()
+
+# timing CPU time
+start_cpu_time = time.process_time
+start_time = time.time()
 
 # Convert the image into Lab color space
 lab_image = cv2.cvtColor(image, cv2.COLOR_BGR2LAB)
@@ -91,6 +112,18 @@ segmented_a = (a_binary)  # Inverting the binary image
 # Applying Otsu thresholding to the b channel
 b_level, b_binary = cv2.threshold(b_channel, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
 segmented_b = (b_binary)  # Inverting the binary image
+
+# timing CPU time end
+end_cpu_time = time.process_time
+end_time = time.time()
+
+# print CPU time
+elapsed_cpu_time = end_cpu_time - start_cpu_time
+elapsed_time = end_time - start_time
+
+
+print(f"Lab CPU time: {elapsed_cpu_time} seconds")
+print(f"Lab Time elapsed: {elapsed_time} seconds")
 
 # Displaying the results for Lab
 plt.figure(figsize=(10, 5))
